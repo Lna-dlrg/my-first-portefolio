@@ -1,0 +1,114 @@
+/* Styles pour centrer l'article au milieu de la page */
+main {
+  flex: 1; /* Prend tout l'espace disponible */
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+article {
+  width: 250px; /* réduit de 350px à 250px */
+  line-height: 1.6; /* un peu plus compact */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-between;
+  border-radius: 10px;
+  margin: 0.80rem;
+  transition: transform 0.2s ease-out;
+  box-shadow: 0 0 4px -2px hsla(0, 0%, 0%, 0.1);
+  background-color: #ffb2d6;
+  color: #000000;
+}
+
+body.dark-mode article {
+  background-color: #82185b;
+  color: white;
+}
+
+/* Pour un meilleur centrage vertical quand il y a plusieurs articles */
+.articles-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 50px; /* Pour tenir compte des figures qui dépassent */
+}
+
+article figure {
+  width: 90px; /* réduit de 120px */
+  height: 90px;
+  border-radius: 50%;
+  margin-top: -45px; /* ajusté à moitié */
+  position: relative;
+}
+
+article figure:before {
+  content: "";
+  border-radius: inherit;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  border: 0.75rem solid #82185b;
+  box-shadow: 0 1px hsla(0, 0%, 0%, 0.1);
+}
+
+body.dark-mode article figure:before {
+  border: 0.75rem solid #ffb2d6;
+}
+
+article figure img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+article div {
+  text-align: center;
+  margin: 1.5rem; /* réduit de 2rem */
+}
+
+article div p {
+  align-items: center;
+  color: hsl(0, 0%, 98%);
+  font-weight: 400;
+  font-style: italic;
+  font-family: "Noticia Text", serif;
+  font-size: 0.8rem; /* réduit */
+  position: relative;
+  z-index: 5;
+}
+
+article div p:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  z-index: -5;
+  opacity: 0.05;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70" width="50" height="50"><rect x="0" y="40" width="30" height="30"></rect><path d="M 0 40 q 0 -40 30 -40 v 15 q -15 0 -15 25"></path><rect x="40" y="40" width="30" height="30"></rect><path d="M 40 40 q 0 -40 30 -40 v 15 q -15 0 -15 25"></path></svg>'),
+              url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70" width="50" height="50" transform="rotate(180)"><rect x="0" y="40" width="30" height="30"></rect><path d="M 0 40 q 0 -40 30 -40 v 15 q -15 0 -15 25"></path><rect x="40" y="40" width="30" height="30"></rect><path d="M 40 40 q 0 -40 30 -40 v 15 q -15 0 -15 25"></path></svg>');
+  background-position: 20% 20%, 80% 80%;
+  background-repeat: no-repeat;
+}
+
+/* Ajout des media queries pour maintenir le centrage en responsive */
+@media screen and (max-width: 768px) {
+  article {
+    width: 80%;
+    max-width: 250px;
+  }
+}

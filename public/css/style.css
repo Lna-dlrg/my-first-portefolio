@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Lato:700|Noticia+Text:400i&display=swap");
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --accent-light: #ffb2d6;
+  --accent-dark: #82185b;
+  --transition-default: 0.5s;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color var(--transition-default), color var(--transition-default);
+}
+
+/* Structure de page avec flexbox pour positionner le footer */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* centre horizontalement */
+  align-items: center;       
+  min-height: 100vh; /* Utilise la hauteur minimale de la fenêtre */
+}
+
+main {
+  flex: 1; /* Prend tout l'espace disponible */
+  width: 100%;
+  max-width: 60%;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+  margin-top: auto; /* Pousse le footer en bas */
+}
+
+body.dark-mode {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+}
+
+/* Style pour les éléments de texte */
+h1 {
+  opacity: 1;
+  font-size: 5vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  text-align: center;
+}
+
+h1 span {
+  display: inline-block;
+  margin-right: 1vh;
+  transition: transform 1s cubic-bezier(0, 0.30, 0.20, 0.20), opacity 1s ease;
+}
+
+h1 span:hover {
+  opacity: 0;
+}
+
+h1:hover span {
+  opacity: 1;
+}
+
+p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  font-family: 'Jersey 10', sans-serif;
+  font-size: 3vh;
+  white-space: pre-line;
+  margin: 0;
+  padding: 0 20px;
+}
+
+/* États de visibilité */
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Éléments d'interface */
+.neon-box {
+  position: absolute;
+  top: 5vh;
+  right: 2vh;
+  width: 20vh;
+  max-width: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--accent-light);
+  display: inline-block;
+  margin: 5vh;
+  transition: background-color var(--transition-default), color var(--transition-default);
+}
+
+body.dark-mode .neon-box {
+  box-shadow: 0 0 30px var(--accent-dark);
+}
+
+.neon-box:hover {
+  background-color: var(--accent-light);
+  color: #ffffff;
+}
+
+body.dark-mode .neon-box:hover {
+  background-color: var(--accent-dark);
+  color: var(--accent-light);
+}
+
+button {
+  width: 100%;
+  max-width: 200vh;
+  cursor: pointer;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color var(--transition-default), color var(--transition-default);
+}
+
+button:hover, .menu-toggle:hover {
+  background-color: var(--accent-light);
+  color: #ffffff;
+}
+
+body.dark-mode button:hover, 
+body.dark-mode .menu-toggle:hover {
+  background-color: var(--accent-dark);
+  color: var(--accent-light);
+}
+
+
+/* Barre latérale */
+
+.sidebar {
+  width: 180px;
+  max-width: 80%;
+  background-color: var(--accent-light);
+  color: white;
+  height: 100vh;
+  position: fixed;
+  z-index: 9999;
+  left: -260px;
+  top: 0;
+  transition: left 0.5s ease;
+}
+
+body.dark-mode .sidebar {
+  background-color: var(--accent-dark);
+  color: black;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 4em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+  unicode-bidi: isolate;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  padding: 30px;
+  transition: background-color var(--transition-default), color var(--transition-default);
+}
+
+body.dark-mode .sidebar ul li a {
+  color: #000000;
+}
+
+.sidebar ul li a:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark-mode .sidebar ul li a:hover {
+  background-color: #000000;
+  color: white;
+}
+
+/* Media queries pour le responsive */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 4vh;
+  }
+  
+  p {
+    font-size: 2.5vh;
+  }
+  
+  .neon-box {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 3vh auto;
+    display: block;
+    width: 80%;
+  }
+  
+  button {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 3vh;
+  }
+  
+  p {
+    font-size: 2vh;
+  }
+  
+  .sidebar {
+    width: 50%;
+    max-width: 80%;
+  }
+}
