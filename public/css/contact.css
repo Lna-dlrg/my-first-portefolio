@@ -12,16 +12,15 @@ main {
 }
 
 article {
-  width: 250px; /* réduit de 350px à 250px */
-  line-height: 1.6; /* un peu plus compact */
+  width: 15.625rem; /* 250px converti en rem */
+  line-height: 1.6;
   display: flex;
   flex-direction: column;
   align-items: center;
   align-content: space-between;
-  border-radius: 10px;
-  margin: 0.80rem;
-  transition: transform 0.2s ease-out;
-  box-shadow: 0 0 4px -2px hsla(0, 0%, 0%, 0.1);
+  border-radius: 0.625rem;
+  margin: 0.8rem;
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
   background-color: #ffb2d6;
   color: #000000;
 }
@@ -38,14 +37,14 @@ body.dark-mode article {
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  padding-top: 50px; /* Pour tenir compte des figures qui dépassent */
+  padding-top: 3.125rem; /* 50px converti en rem */
 }
 
 article figure {
-  width: 90px; /* réduit de 120px */
-  height: 90px;
+  width: 5.625rem; /* 90px converti en rem */
+  height: 5.625rem;
   border-radius: 50%;
-  margin-top: -45px; /* ajusté à moitié */
+  margin-top: -2.8125rem; /* -45px converti en rem */
   position: relative;
 }
 
@@ -59,7 +58,7 @@ article figure:before {
   height: 100%;
   transform: translate(-50%, -50%);
   border: 0.75rem solid #82185b;
-  box-shadow: 0 1px hsla(0, 0%, 0%, 0.1);
+  box-shadow: 0 0.0625rem hsla(0, 0%, 0%, 0.1);
 }
 
 body.dark-mode article figure:before {
@@ -75,7 +74,7 @@ article figure img {
 
 article div {
   text-align: center;
-  margin: 1.5rem; /* réduit de 2rem */
+  margin: 1.5rem;
 }
 
 article div p {
@@ -84,7 +83,7 @@ article div p {
   font-weight: 400;
   font-style: italic;
   font-family: "Noticia Text", serif;
-  font-size: 0.8rem; /* réduit */
+  font-size: 0.8rem;
   position: relative;
   z-index: 5;
 }
@@ -105,10 +104,51 @@ article div p:before {
   background-repeat: no-repeat;
 }
 
-/* Ajout des media queries pour maintenir le centrage en responsive */
-@media screen and (max-width: 768px) {
+/* Media queries améliorées pour différentes tailles d'écran */
+@media screen and (max-width: 64rem) { /* 1024px */
   article {
-    width: 80%;
-    max-width: 250px;
+    width: 14rem; /* légèrement plus petit sur les écrans moyens */
+  }
+}
+
+@media screen and (max-width: 48rem) { /* 768px */
+  main {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  article {
+    width: 90%;
+    max-width: 25rem; /* 400px converti en rem */
+  }
+}
+
+@media screen and (max-width: 30rem) { /* 480px - pour les petits mobiles */
+  article {
+    margin: 0.5rem;
+    width: 95%;
+  }
+  
+  article figure {
+    width: 5rem;
+    height: 5rem;
+    margin-top: -2.5rem;
+  }
+  
+  article div {
+    margin: 1rem;
+  }
+}
+
+/* Pour tenir compte des tailles de base du navigateur */
+@media screen and (max-width: 20rem) { /* 320px - très petits écrans */
+  article figure {
+    width: 4rem;
+    height: 4rem;
+    margin-top: -2rem;
+  }
+  
+  article div p {
+    font-size: 0.75rem;
   }
 }

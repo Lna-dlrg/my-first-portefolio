@@ -82,39 +82,30 @@ if (window.location.pathname.includes("contact.html")) {
   });
 }
 
-// Animation de rotation des articles
+
+
 const articles = document.querySelectorAll('article');
 
 articles.forEach(article => {
-function handleMove(e) {
-  const { x, y, width, height } = article.getBoundingClientRect();
-  const cx = x + width / 2;
-  const cy = y + height / 2;
+  article.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
 
-  const { pageX, pageY } = e;
+  function handleMove(e) {
+    const { left, top, width, height } = article.getBoundingClientRect();
+    const x = e.clientX - left;
+    const y = e.clientY - top;
 
-  const dx = (cx - pageX) / (width / 2);
-  const dy = (cy - pageY) / (height / 2);
+    const moveX = ((x / width) - 0.5) * 30;  // déplacement horizontal
+    const moveY = ((y / height) - 0.5) * 30; // déplacement vertical
 
-  article.style.transform = `rotateX(${20 * dy * -1}deg) rotateY(${20 * dx}deg)`;
-}
+    article.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.03)`;
+    article.style.boxShadow = `${-moveX}px ${-moveY}px 20px rgba(0, 0, 0, 0.2)`;
+  }
 
-function handleOut() {
-  article.style.transform = 'initial';
-}
+  function handleOut() {
+    article.style.transform = 'translate(0px, 0px) scale(1)';
+    article.style.boxShadow = '0 0 10px #82185b(0, 0, 0, 0.1)';
+  }
 
-article.addEventListener('mousemove', handleMove);
-article.addEventListener('mouseout', handleOut);
+  article.addEventListener('mousemove', handleMove);
+  article.addEventListener('mouseleave', handleOut);
 });
-
-
-
-
-
-
-
-
-
-
-
-  
