@@ -12,14 +12,14 @@ main {
 }
 
 article {
-  width: 15.625rem; /* 250px converti en rem */
+  width: 15.625rem;
   line-height: 1.6;
   display: flex;
   flex-direction: column;
   align-items: center;
   align-content: space-between;
   border-radius: 0.625rem;
-  margin: 0.8rem;
+  margin: 1rem;
   box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
   background-color: #ffb2d6;
   color: #000000;
@@ -30,21 +30,11 @@ body.dark-mode article {
   color: white;
 }
 
-/* Pour un meilleur centrage vertical quand il y a plusieurs articles */
-.articles-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
-  padding-top: 3.125rem; /* 50px converti en rem */
-}
-
 article figure {
-  width: 5.625rem; /* 90px converti en rem */
+  width: 5.625rem;
   height: 5.625rem;
   border-radius: 50%;
-  margin-top: -2.8125rem; /* -45px converti en rem */
+  margin-top: -2.8125rem;
   position: relative;
 }
 
@@ -106,6 +96,7 @@ article div p:before {
 
 /* Media queries améliorées pour différentes tailles d'écran */
 @media screen and (max-width: 64rem) { /* 1024px */
+
   article {
     width: 14rem; /* légèrement plus petit sur les écrans moyens */
   }
@@ -113,13 +104,14 @@ article div p:before {
 
 @media screen and (max-width: 48rem) { /* 768px */
   main {
+    flex: 1; /* Le main prend tout l'espace disponible */
     flex-direction: column;
     align-items: center;
   }
   
   article {
     width: 90%;
-    max-width: 25rem; /* 400px converti en rem */
+    max-width: 25rem;
   }
 }
 
@@ -127,6 +119,7 @@ article div p:before {
   article {
     margin: 0.5rem;
     width: 95%;
+    padding-top: 2rem;
   }
   
   article figure {
