@@ -1,92 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/contact.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="../../src/jscontact.js" defer></script>
     <script src="../../src/script.js" defer></script>
     <title>Contact</title>
 </head>
 <body>
-    <header>
-        <button id="menuToggle" class="menu-toggle">☰ Menu</button>  <!-- Bouton pour afficher/masquer la barre latérale -->
-    </header>
+    <div class="top-buttons">
+        <button id="menuToggle" class="menu-toggle">☰ Menu</button>
+        <button id="modeToggle">🌚 Mode nuit</button>
+    </div>
 
-
-<!-- Menu Latéral -->
-<div class="sidebar" id="sidebar">
-    <ul>
-        <li><a href="../html/accueil.html">Acceuil</a></li>
-        <li><a href="../html/moi.html">Qui suis-je ?</a></li>
-        <li><a href="../html/contact.html">Contact</a></li>
-        <li><a href="../html/creations.html">Mes créations</a></li>
-    </ul>
-</div>
-
-<div class="neon-box">
-    <button id="modeToggle">🌚 Mode nuit</button>
-</div>
+    <!-- Menu Latéral -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="../html/accueil.html">Accueil</a></li>
+            <li><a href="../html/moi.html">Qui suis-je ?</a></li>
+            <li><a href="../html/contact.html">Contact</a></li>
+            <li><a href="../html/creations.html">Mes créations</a></li>
+        </ul>
+    </div>
   
-<main>
-    <h1>Me Contacter :</h1>
+    <main>
+        <h1>Me Contacter :</h1>
 
-     <article>
-        <figure>
-            <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-        </figure>
-    
-        <div >
-            <p>
-                📞
-                06.13.28.99.41
-    
-                📧
-                <a href="mailto:elena.delbourg@yahoo.fr" target="_blank" title="Description au survol">Envoi moi un e-mail</a>    
-            </p>
-    
+        <div class="contact-info">
+            <div class="card hidden">
+              <i class="icon fas fa-envelope"></i>
+              <div class="card-content">
+                <h3>Email</h3>
+                <span>email@address.com</span>
+              </div>
+            </div>
+        
+            <div class="card hidden">
+              <i class="icon fas fa-phone"></i>
+              <div class="card-content">
+                <h3>Phone Number</h3>
+                <span>+00000000000</span>
+              </div>
+            </div>
+        
+            <div class="card hidden">
+              <i class="icon fas fa-map-marker-alt"></i>
+              <div class="card-content">
+                <h3>Location</h3>
+                <span>France</span>
+              </div>
+            </div>
         </div>
-    </article>
-    
-    <article>
-        <figure>
-            <img src="https://images.unsplash.com/photo-1494475673543-6a6a27143fc8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-        </figure>
-    
-        <div>
-            <p>
-                🏠
-                31400 Toulouse
-    
-                🏡            
-                11500 Belvianes    
-            </p>
-    
-        </div>
-    </article>
+          
 
-    <article>
-        <figure>
-            <img src="https://plus.unsplash.com/premium_photo-1684225765169-2c46196bcca6?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-        </figure>
-    
-        <div>
-            <p>
-                👔
-                <a href="https://www.linkedin.com/in/elenadelbourg" target="_blank" title="Description au survol">Mon Linkedin</a>
-                📸
-                Insta photo                    
-            </p>
-    
-        </div>
-    </article>  
 
-</main>
+    </main>
 
-<footer>
-     © 2025 Mon Portfolio. Tous droits réservés. Delbourg Elena
-</footer>
-
+    <footer>
+        © 2025 Mon Portfolio. Tous droits réservés. Delbourg Elena
+    </footer>
 </body>
 </html>

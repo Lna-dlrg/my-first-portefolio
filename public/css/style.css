@@ -1,8 +1,6 @@
-/* Importation des polices */
 @import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lato:700|Noticia+Text:400i&display=swap');
 
-/* Variables globales */
 :root {
   --bg-color: #ffffff;
   --text-color: #000000;
@@ -11,8 +9,14 @@
   --transition-default: 0.5s;
 }
 
-/* Styles de base */
-body, html {
+body.dark-mode {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+}
+
+
+html, body {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -22,7 +26,6 @@ body, html {
   transition: background-color var(--transition-default), color var(--transition-default);
 }
 
-/* Structure de page avec flexbox */
 body {
   display: flex;
   flex-direction: column;
@@ -31,31 +34,54 @@ body {
   min-height: 100vh;
 }
 
-header {
+.top-buttons {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  gap: 1rem;
+  z-index: 9999;
 }
+
+.top-buttons button,
+button,
+#modeToggle,
+.menu-toggle {
+  cursor: pointer;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color var(--transition-default), color var(--transition-default);
+  font-size: 1rem;
+  width: auto;
+  max-width: none;
+}
+
+button:hover,
+#modeToggle:hover,
+.menu-toggle:hover {
+  background-color: var(--accent-light);
+  color: #ffffff;
+}
+
+body.dark-mode button:hover,
+body.dark-mode #modeToggle:hover,
+body.dark-mode .menu-toggle:hover {
+  background-color: var(--accent-dark);
+  color: var(--accent-light);
+}
+
 main {
   width: 70%;
-  align-items: center;
+  display: flex;
   justify-content: center;
-  box-sizing: border-box;
+  align-items: center;
+  padding-top: 80px;
 }
 
-footer {
-  text-align: center;
-  padding: 20px 0;
-  width: 100%;
-  margin-top: auto;
-}
-
-/* Mode sombre */
-body.dark-mode {
-  --bg-color: #000000;
-  --text-color: #ffffff;
-}
-
-/* Typographie */
 h1 {
   opacity: 1;
   font-size: 5vh;
@@ -81,7 +107,8 @@ h1:hover span {
   opacity: 1;
 }
 
-p {
+p,
+#blabla {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -91,75 +118,28 @@ p {
   font-family: 'Jersey 10', sans-serif;
   font-size: 3vh;
   white-space: pre-line;
-  padding: 0 20px;
+  padding: 10px;
+  line-height: 1.6;
 }
 
-/* Classes utilitaires */
-.hidden {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 1s ease, visibility 1s ease;
-}
-
-.visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Composants d'interface */
-.neon-box {
-  position: absolute;
-  top: 5vh;
-  right: 2vh;
-  width: 20vh;
-  max-width: 90%;
-  border-radius: 10px;
-  box-shadow: 0 0 10px var(--accent-light);
-  display: inline-block;
-  margin: 5vh;
-  transition: background-color var(--transition-default), color var(--transition-default);
-}
-
-body.dark-mode .neon-box {
-  box-shadow: 0 0 30px var(--accent-dark);
-}
-
-.neon-box:hover {
-  background-color: var(--accent-light);
-  color: #ffffff;
-}
-
-body.dark-mode .neon-box:hover {
-  background-color: var(--accent-dark);
-  color: var(--accent-light);
-}
-
-/* Boutons */
-button {
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  max-width: 200vh;
-  cursor: pointer;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  text-align: center;
+  padding: 20px 0;
   background-color: var(--bg-color);
   color: var(--text-color);
+  z-index: 9997;
   transition: background-color var(--transition-default), color var(--transition-default);
 }
 
-button:hover, 
-.menu-toggle:hover {
-  background-color: var(--accent-light);
-  color: #ffffff;
+body.dark-mode footer {
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
-body.dark-mode button:hover, 
-body.dark-mode .menu-toggle:hover {
-  background-color: var(--accent-dark);
-  color: var(--accent-light);
-}
-
-/* Barre latérale */
 .sidebar {
   width: 180px;
   max-width: 80%;
@@ -181,11 +161,7 @@ body.dark-mode .sidebar {
 .sidebar ul {
   list-style: none;
   padding: 0;
-  margin-block-start: 4em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 0px;
+  margin: 4em 0 1em 0;
 }
 
 .sidebar ul li {
@@ -201,12 +177,12 @@ body.dark-mode .sidebar {
   transition: background-color var(--transition-default), color var(--transition-default);
 }
 
-body.dark-mode .sidebar ul li a {
+.sidebar ul li a:hover {
+  background-color: #ffffff;
   color: #000000;
 }
 
-.sidebar ul li a:hover {
-  background-color: #ffffff;
+body.dark-mode .sidebar ul li a {
   color: #000000;
 }
 
@@ -215,46 +191,30 @@ body.dark-mode .sidebar ul li a:hover {
   color: white;
 }
 
-/* Menu toggle */
-.menu-toggle {
-  position: fixed;
-  top: 1rem;
-  z-index: 9999;
-  cursor: pointer;
-  font-size: 1rem;
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 1s ease;
 }
 
-body.dark-mode .menu-toggle {
-  color: white;
+.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
-/* Media queries */
 @media screen and (max-width: 768px) {
   h1 {
     font-size: 4vh;
   }
-  
-  p {
-    font-size: 2.5vh;
+
+  p,
+  #blabla {
+    font-size: 2vh;
   }
-  
-  .neon-box {
-    position: fixed;
-    top: 3rem;
-    right: auto;
-    margin: 3vh auto;
-    display: block;
-    width: 80%;
-  }
-  
-  button {
-    width: 100%;
-    max-width: none;
-  }
-  
-  .menu-toggle {
-    top: 0.5rem;
-    font-size: 1.2rem;
+
+  .top-buttons {
+    top: 0.8rem;
+    right: 0.8rem;
   }
 }
 
@@ -262,17 +222,20 @@ body.dark-mode .menu-toggle {
   h1 {
     font-size: 3vh;
   }
-  
-  p {
-    font-size: 2vh;
+
+  p,
+  #blabla {
+    font-size: 1.5vh;
   }
-  
+
   .sidebar {
     width: 50%;
-    max-width: 80%;
   }
-  
-  .menu-toggle {
+
+  .top-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
     top: 0.5rem;
+    right: 0.5rem;
   }
 }
