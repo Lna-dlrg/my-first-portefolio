@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lato:700|Noticia+Text:400i&display=swap');
 
+
 :root {
   --bg-color: #ffffff;
   --text-color: #000000;
@@ -8,6 +9,7 @@
   --accent-dark: #82185b;
   --transition-default: 0.5s;
 }
+
 
 body.dark-mode {
   --bg-color: #000000;
@@ -33,6 +35,7 @@ body {
   align-items: center;
   min-height: 100vh;
 }
+
 
 .top-buttons {
   position: fixed;
@@ -74,12 +77,11 @@ body.dark-mode .menu-toggle:hover {
   color: var(--accent-light);
 }
 
+
 main {
-  width: 70%;
-  display: flex;
+  width: 90%;
   justify-content: center;
   align-items: center;
-  padding-top: 80px;
 }
 
 h1 {
@@ -110,7 +112,6 @@ h1:hover span {
 p,
 #blabla {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
@@ -121,6 +122,7 @@ p,
   padding: 10px;
   line-height: 1.6;
 }
+
 
 footer {
   position: fixed;
@@ -139,6 +141,7 @@ body.dark-mode footer {
   background-color: var(--bg-color);
   color: var(--text-color);
 }
+
 
 .sidebar {
   width: 180px;
@@ -191,6 +194,7 @@ body.dark-mode .sidebar ul li a:hover {
   color: white;
 }
 
+
 .hidden {
   opacity: 0;
   visibility: hidden;
@@ -201,6 +205,7 @@ body.dark-mode .sidebar ul li a:hover {
   opacity: 1;
   visibility: visible;
 }
+
 
 @media screen and (max-width: 768px) {
   h1 {

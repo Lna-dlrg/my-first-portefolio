@@ -3,10 +3,10 @@ if (window.location.pathname.includes("contact.html")) {
   const text = h1.textContent;
   const words = text.split(' ');
   const cards = document.querySelectorAll('.card');
+  const iconsButton = document.querySelector('.iconsbutton');
 
-  h1.innerHTML = ''; // On vide le h1 pour le remplir lettre par lettre
+  h1.innerHTML = '';
 
-  // On recrée chaque lettre dans un span
   words.forEach((word, index) => {
     const wordSpan = document.createElement('span');
     wordSpan.classList.add('word');
@@ -36,24 +36,25 @@ if (window.location.pathname.includes("contact.html")) {
         card.classList.remove('hidden');
         card.classList.add('visible');
       });
+      setTimeout(() => {
+        iconsButton.classList.remove('hidden');
+        iconsButton.classList.add('visible');
+      }, 300);
     }
   }
 
   h1.addEventListener('mouseover', () => {
     const letterSpans = h1.querySelectorAll('.letter');
+    
     letterSpans.forEach((span, index) => {
       span.style.opacity = '0';
       span.style.transition = `opacity 1s ease ${index * 0.1}s`;
     });
 
-    const checkInterval = setInterval(() => {
-      showCards();
-      if (h1Disappeared) clearInterval(checkInterval);
-    }, 200);
+    const totalDelay = (letterSpans.length - 1) * 100 + 1000;
 
     setTimeout(() => {
-      clearInterval(checkInterval);
-      if (!h1Disappeared) showCards();
-    }, 5000);
+      showCards();
+    }, totalDelay);
   });
 }
