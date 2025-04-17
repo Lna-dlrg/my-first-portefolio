@@ -1,18 +1,42 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --accent-light: #ffb2d6;
+  --accent-dark: #82185b;
+  --transition-default: 0.5s;
+}
+    
+body.dark-mode {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+}
+  
+  html, body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color var(--transition-default), color var(--transition-default);
+}
+
+
 .slider {
     width: 100%;
-    height: 194.5px; /* hauteur du slider-row */
+    height: 194.5px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     overflow: hidden;
-    position: relative; /* on évite absolute */
-    margin-top: 5vh; /* espace optionnel depuis le haut */
+    position: absolute;
+    top: 10px;
+    left: 0;
   }
   
   .slider .slider-row {
     width: 2956px;
     height: 194.5px;
-    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/111863/ubiquity-summit-web-01.png);
+    background-image: url(../images/landingpage.png);
     background-size: 2956px 194.5px;
     animation: slide 50s linear infinite;
     max-width: 100%;
@@ -24,6 +48,155 @@
       background-position-x: 0;
     }
     to {
-      background-position-x: calc(-1 * 5912px / 2); /* = -2956px */
+      background-position-x: calc(-1 * 5912px / 2);
     }
+  }
+
+
+  .container{
+    perspective:1000px;
+  }
+  
+ 
+  .frame{
+    position:absolute;    
+    top:50%;
+    left:50%;
+    width:300px;
+    height:300px;
+    transform:translate(-50%,-50%);
+    transform-style:preserve-3d;
+  }
+  
+  .frame div{
+    margin-top: 50px;
+    position:absolute;    
+    width:50%;
+    height:50%;
+    background-size:300px 300px;
+  }
+  
+   
+  .front{
+    background-image:url('http://www.lavozdelsandinismo.com/wp-estaticos/2014/11/1bge941r.jpg');
+  }
+  
+  .front:first-child{
+    background-position:0px 0px;
+    top:0;
+    left:0;
+    animation:top-left-front 10s linear infinite alternate;
+  }
+  
+  .front:nth-child(2){
+    background-position:150px 0px;
+    top:0;
+    left:150px;
+    animation:top-right-front 10s linear infinite alternate;
+  }
+  
+  .front:nth-child(3){
+    background-position:0px 150px;
+    top:150px;
+    left:0;
+      animation:bottom-left-front 10s linear infinite alternate;
+  
+  }
+  
+  .front:nth-child(4){
+    background-position:150px 150px;
+    top:150px;
+    left:150px;
+      animation:bottom-right-front 10s linear infinite alternate;
+  
+  }
+  
+   
+  .back{
+    background-image:url('http://a-z-animals.com/media/animals/images/original/jellyfish2.jpg');
+  }
+  
+  .back:nth-child(5){
+    background-position:0px 0px;
+    top:0;
+    left:0;
+    animation:top-left-back 10s linear infinite alternate;
+  }
+  
+  .back:nth-child(6){
+    background-position:150px 0px;
+    top:0;
+    left:150px;
+    animation:top-right-back 10s linear infinite alternate;
+  }
+  
+  .back:nth-child(7){
+    background-position:0px 150px;
+    top:150px;
+    left:0;
+    animation:bottom-left-back 10s linear infinite alternate;
+  }
+  
+  .back:last-child{
+    background-position:150px 150px;
+    top:150px;
+    left:150px;
+    animation:bottom-right-back 10s linear infinite alternate;
+  }
+  
+  
+  @keyframes top-left-front{
+    0%{transform:translateZ(0px) rotateY(0deg);}
+     5%{transform:translateZ(0px) rotateY(0deg);}
+    95%{transform:translateZ(-1px) rotateY(-180deg);}
+    100%{transform:translateZ(-1px) rotateY(-180deg);}
+  }
+  
+  @keyframes top-left-back{
+    0%{transform:translateZ(-1px) rotateY(180deg);}
+    5%{transform:translateZ(-1px) rotateY(180deg);}
+    95%{transform:translateZ(0px) rotateY(0deg);}
+    100%{transform:translateZ(0px) rotateY(0deg);}
+  }
+  
+  @keyframes top-right-front{
+    0%{transform:translateZ(0px) rotateX(0deg);}
+    5%{transform:translateZ(0px) rotateX(0deg);}
+    95%{transform:translateZ(-1px) rotateX(-180deg);}
+    100%{transform:translateZ(-1px) rotateX(-180deg);}
+  }
+  
+  @keyframes top-right-back{
+    0%{transform:translateZ(-1px) rotateX(180deg);}
+    5%{transform:translateZ(-1px) rotateX(180deg);}
+    95%{transform:translateZ(0px) rotateX(0deg);}
+    100%{transform:translateZ(0px) rotateX(0deg);}
+  }
+  
+  @keyframes bottom-left-front{
+    0%{transform:translateZ(0px) rotateX(0deg);}
+    5%{transform:translateZ(0px) rotateX(0deg);}
+    95%{transform:translateZ(-1px) rotateX(180deg);}
+    100%{transform:translateZ(-1px) rotateX(180deg);}
+  }
+  
+  @keyframes bottom-left-back{
+    0%{transform:translateZ(-1px) rotateX(-180deg);}
+    5%{transform:translateZ(-1px) rotateX(-180deg);}
+    95%{transform:translateZ(0px) rotateX(0deg);}
+    100%{transform:translateZ(0px) rotateX(0deg);}
+  }
+  
+  @keyframes bottom-right-front{
+    0%{transform:translateZ(0px) rotateY(0deg);}
+    5%{transform:translateZ(0px) rotateY(0deg);}
+    95%{transform:translateZ(-1px) rotateY(180deg);}
+    100%{transform:translateZ(-1px) rotateY(180deg);}
+  }
+  
+  @keyframes bottom-right-back{
+    0%{transform:translateZ(-1px) rotateY(-180deg);}
+    5%{transform:translateZ(-1px) rotateY(-180deg);}
+    95%{transform:translateZ(0px) rotateY(0deg);}
+    100%{transform:translateZ(0px) rotateY(0deg);}
   }

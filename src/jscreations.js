@@ -33,13 +33,17 @@ if (window.location.pathname.includes("creations.html")) {
     const allDisappeared = Array.from(letterSpans).every(span =>
       parseFloat(getComputedStyle(span).opacity) < 0.1
     );
-
+  
     if (allDisappeared && !h1Disappeared) {
       h1Disappeared = true;
-
+  
       setTimeout(() => {
         slider.classList.remove('hidden');
         slider.classList.add('visible');
+  
+        const container = document.querySelector('.container');
+        container.classList.remove('hidden');
+        container.classList.add('visible');
       }, 2);
     }
   }

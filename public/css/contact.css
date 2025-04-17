@@ -1,3 +1,29 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --accent-light: #ffb2d6;
+  --accent-dark: #82185b;
+  --transition-default: 0.5s;
+}
+
+
+body.dark-mode {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+}
+
+
+html, body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color var(--transition-default), color var(--transition-default);
+}
+
 .contact-info {
   width: 100%;
   display: flex;
@@ -189,29 +215,9 @@ body.dark-mode .card-content span {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media screen and (max-width: 900px) {
   .card {
     flex: 100%;
     max-width: 500px;
   }
 }
-
-
-
-

@@ -10,12 +10,10 @@
   --transition-default: 0.5s;
 }
 
-
 body.dark-mode {
   --bg-color: #000000;
   --text-color: #ffffff;
 }
-
 
 html, body {
   box-sizing: border-box;
@@ -23,7 +21,6 @@ html, body {
   padding: 0;
   height: 100%;
   font-family: Arial, sans-serif;
-  background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color var(--transition-default), color var(--transition-default);
 }
@@ -130,7 +127,7 @@ footer {
   left: 0;
   width: 100%;
   text-align: center;
-  padding: 20px 0;
+  padding: 8px 0;
   background-color: var(--bg-color);
   color: var(--text-color);
   z-index: 9997;
@@ -212,11 +209,6 @@ body.dark-mode .sidebar ul li a:hover {
     font-size: 4vh;
   }
 
-  p,
-  #blabla {
-    font-size: 2vh;
-  }
-
   .top-buttons {
     top: 0.8rem;
     right: 0.8rem;
@@ -226,11 +218,6 @@ body.dark-mode .sidebar ul li a:hover {
 @media screen and (max-width: 480px) {
   h1 {
     font-size: 3vh;
-  }
-
-  p,
-  #blabla {
-    font-size: 1.5vh;
   }
 
   .sidebar {
