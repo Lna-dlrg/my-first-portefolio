@@ -5,24 +5,22 @@
   --accent-dark: #82185b;
   --transition-default: 0.5s;
 }
-  
-  
-body.dark-mode {
-  --bg-color: #000000;
-  --text-color: #ffffff;
-}
-  
-  
-html, body {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: Arial, sans-serif;
+
+
+
+#orbitCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
   background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color var(--transition-default), color var(--transition-default);
 }
+
+
+
 
 p,
 #blabla {

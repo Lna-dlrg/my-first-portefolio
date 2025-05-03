@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/creations.css">
-    <script src="../../src/script.js" defer></script>
     <script src="../../src/jscreations.js" defer></script>
+    <script src="../../src/accueil.js" defer></script>
     <title>Créations</title>
 </head>
 <body>
     <div class="top-buttons">
         <button id="menuToggle" class="menu-toggle">☰ Menu</button>
-        <button id="modeToggle">🌚 Mode nuit</button>
+        <button id="modeToggle">🌚 Mode nuit</button>        
+        <button onclick="randomizeColors()">Surprise ✨</button>
     </div>
 
 <div class="sidebar" id="sidebar">
@@ -48,6 +49,8 @@
 <footer>
     © 2025 Mon Portfolio. Tous droits réservés. Delbourg Elena
 </footer>
+
+    <canvas id="creationsCanvas"></canvas>
 
 
 </body>

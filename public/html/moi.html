@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moi, moi, moi</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/moi.css">
-    <script src="../../src/script.js" defer></script>
+    <link rel="stylesheet" href="../css/moi.css">    
+    <script src="../../src/accueil.js" defer></script>
     <script src="../../src/jsmoi.js" defer></script>
 </head>
 <body>
@@ -14,6 +14,7 @@
     <div class="top-buttons">
         <button id="menuToggle" class="menu-toggle">☰ Menu</button>
         <button id="modeToggle">🌚 Mode nuit</button>
+        <button onclick="randomizeColors()">Surprise ✨</button>
     </div>
 
     <div class="sidebar" id="sidebar">
@@ -27,7 +28,7 @@
 
     <main>
         <h1>Qui suis-je ?</h1>
-        <p id="blabla">Salut, je suis Éléna ! 🌻
+        <p id="blabla">Salut, je suis Éléna !
             En ce moment, je me consacre pleinement à l’apprentissage du développement front-end : HTML, CSS, JavaScript… 💻
             Je découvre un univers à la fois technique et créatif, dans lequel chaque ligne de code me permet de transformer une idée en expérience concrète.
             J’aime concevoir des interfaces web à la fois esthétiques, intuitives et efficaces, avec toujours cette envie de proposer des expériences utilisateurs fluides, accessibles… et un peu stylées quand même. ✨
@@ -44,6 +45,10 @@
     <footer>
         © 2025 Mon Portfolio. Tous droits réservés. Delbourg Elena
     </footer>
+
     
+    <canvas id="orbitCanvas"></canvas>
+
+
 </body>
 </html>
